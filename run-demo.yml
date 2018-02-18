@@ -18,16 +18,16 @@
     - frr
   serial: 1
   max_fail_percentage: 1
-#- hosts: servers
-#  user: cumulus
-#  become: yes
-#  become_method: sudo
-#  roles:
-#    - ifupdown
-#    - quagga-roh
-#- hosts: server02
-#  user: cumulus
-#  become: yes
-#  become_method: sudo
-#  roles:
-#    - apache
+- hosts: servers
+  user: cumulus
+  become: yes
+  become_method: sudo
+  roles:
+    - ifupdown
+    - quagga-roh
+- hosts: server02
+  user: cumulus
+  become: yes
+  become_method: sudo
+  roles:
+    - apache
