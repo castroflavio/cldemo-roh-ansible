@@ -23,7 +23,7 @@
     - restart frr
 
 - name:
-  shell: "wget -q -O - http://{ with_items }:5000/"
+  shell: "wget -q -O - http://{ item }:5000/"
   with_items:
     - 'leaf01'
     - 'leaf02'
