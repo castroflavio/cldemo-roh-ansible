@@ -3,6 +3,6 @@
     register: number_neighbors
 
   - set_fact:
-      output: "{{ number_neighbors.stdout_lines | bgp_output_checker() }}"
+      output: "{{ number_neighbors.stdout_lines | bgp_neighbor_check() }}"
 
   - debug: var=output
