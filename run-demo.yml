@@ -6,6 +6,7 @@
   roles:
     - ifupdown2
     - frr
+  serial: 1
 - hosts: spines
   user: cumulus
   become: yes
@@ -13,16 +14,17 @@
   roles:
     - ifupdown2
     - frr
-- hosts: servers
-  user: cumulus
-  become: yes
-  become_method: sudo
-  roles:
-    - ifupdown
-    - quagga-roh
-- hosts: server02
-  user: cumulus
-  become: yes
-  become_method: sudo
-  roles:
-    - apache
+  serial: 1
+#- hosts: servers
+#  user: cumulus
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    - ifupdown
+#    - quagga-roh
+#- hosts: server02
+#  user: cumulus
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    - apache
