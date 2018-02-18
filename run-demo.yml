@@ -6,7 +6,9 @@
   roles:
     - ifupdown2
     - frr
+    - statecheck
   serial: 1
+  max_fail_percentage: 1
 - hosts: spines
   user: cumulus
   become: yes
@@ -15,6 +17,7 @@
     - ifupdown2
     - frr
   serial: 1
+  max_fail_percentage: 1
 #- hosts: servers
 #  user: cumulus
 #  become: yes

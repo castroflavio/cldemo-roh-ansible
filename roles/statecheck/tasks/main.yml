@@ -1,0 +1,5 @@
+  - name: Get number of bgp neighbors
+    shell: "vtysh -c 'show ip bgp summary' | grep -v Idle | grep ^10 | grep -v Connect | grep -v Active | wc -l "
+    register: number_neighbors
+
+  - debug: var=number_neighbors
