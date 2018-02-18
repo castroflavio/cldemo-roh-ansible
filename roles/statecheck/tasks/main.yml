@@ -1,8 +1,11 @@
-  - name: Get number of bgp neighbors
-    shell: "vtysh -c 'show ip bgp summary' "
-    register: number_neighbors
 
-  - set_fact:
-      output: "{{ number_neighbors.stdout_lines | bgp_neighbor_check() }}"
+- easy_install:
+    name: pip
+    state: latest
 
-  - debug: var=output
+- pip:
+    name: flask
+
+- copy:
+    src: StateExporter.py
+    dest: ~/StateExporter.py
