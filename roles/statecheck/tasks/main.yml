@@ -6,6 +6,14 @@
 - pip:
     name: flask
 
+- name: Install supervisor configuration
+  template: >
+    src=flask_supervisor.conf.j2
+    dest=/etc/supervisor/conf.d/flask_supervisor.conf
+  notify: reload supervisor config
+
 - copy:
     src: StateExporter.py
     dest: /home/cumulus/StateExporter.py
+    mode: 755
+  notify: restart flask app
