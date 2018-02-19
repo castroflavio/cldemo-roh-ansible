@@ -22,11 +22,11 @@
     - check frr
     - restart frr
 
-- name:
-  shell: "wget -q -O - http://{ item }:5000/"
-  register: neighbors
-  with_items:
-    - 'leaf01'
-    - 'leaf02'
-    - 'leaf03'
-    - 'leaf04'
+#- name:
+#  shell: "wget -q -O - http://{ item }:5000/"
+#  register: neighbors
+#  with_items:
+#    - 'leaf01'
+#    - 'leaf02'
+#    - 'leaf03'
+#    - 'leaf04'

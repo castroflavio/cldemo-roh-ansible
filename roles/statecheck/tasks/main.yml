@@ -8,4 +8,4 @@
 
 - copy:
     src: StateExporter.py
-    dest: ~/StateExporter.py
+    dest: /home/cumulus/StateExporter.py
