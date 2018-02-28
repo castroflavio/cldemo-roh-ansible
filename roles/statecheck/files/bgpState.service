@@ -1,0 +1,10 @@
+[Unit]
+Description=Bgp neighbor API
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /home/cumulus/StateExporter.py
+
+[Install]
+WantedBy=multi-user.target

@@ -1,4 +1,5 @@
 ---
 
 - name: restart flask app
-  supervisorctl: name=app state=restarted
+  shell: systemctl restart myscript.service
+  become: true

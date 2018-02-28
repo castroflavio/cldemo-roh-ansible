@@ -4,7 +4,6 @@
   become: yes
   become_method: sudo
   roles:
-    - supervisor
     - statecheck
 - hosts: leafs
   user: cumulus

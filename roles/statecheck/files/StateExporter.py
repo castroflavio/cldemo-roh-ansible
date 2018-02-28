@@ -11,10 +11,9 @@ def bgp():
         s=bgp_summary.split("Neigh")[1]
         lines=s.split("\n")
         lastCol=[l.split(" ")[-1] for l in lines]
-        GoodNeighbors = lastCol[1:-3]
-        remove( GoodNeighbors, "Connect" )
-        remove( GoodNeighbors, "Active" )
-        remove( GoodNeighbors, "Idle" )
+        neighbors = lastCol[1:-3]
+        excluded = set(["Connect", "Active", "Idle"])
+        GoodNeighbors = [p for p in neighbors if p not in excluded ]
         neighbors = len(GoodNeighbors)
         return str(neighbors)
 
