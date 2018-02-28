@@ -1,0 +1,29 @@
+
+- easy_install:
+    name: pip
+    state: latest
+
+- pip:
+    name: flask
+
+- copy:
+    src: StateExporter.py
+    dest: /home/cumulus/StateExporter.py
+    mode: 777
+
+- copy:
+    src: bgpState.service
+    dest: /lib/systemd/system/bgpState.service
+    mode: 644
+
+- name: Daemon reload
+  shell: "systemctl daemon-reload"
+  become: true
+
+- name: enable service
+  shell: "systemctl enable bgpState.service"
+  become: true
+
+- name: restart flask app
+  shell: "systemctl restart bgpState.service"
+  become: true

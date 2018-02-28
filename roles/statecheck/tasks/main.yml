@@ -1,29 +1,13 @@
+- uri:
+    url: "http://{{ item }}:5000/"
+    return_content: yes
+  register: webpage
+  with_items:    
+    #- 'leaf01'
+    - 'leaf02'
+    - 'leaf03'
+    #- 'leaf04'
 
-- easy_install:
-    name: pip
-    state: latest
-
-- pip:
-    name: flask
-
-- copy:
-    src: StateExporter.py
-    dest: /home/cumulus/StateExporter.py
-    mode: 777
-
-- copy:
-    src: bgpState.service
-    dest: /lib/systemd/system/bgpState.service
-    mode: 644
-
-- name: Daemon reload
-  shell: "systemctl daemon-reload"
-  become: true
-
-- name: enable service
-  shell: "systemctl enable bgpState.service"
-  become: true
-
-- name: restart flask app
-  shell: "systemctl restart bgpState.service"
-  become: true
+- debug: var=item.content
+  failed_when: item.content|int < 2
+  with_items: "{{ webpage.results }}"

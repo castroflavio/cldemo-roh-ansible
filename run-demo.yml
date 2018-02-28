@@ -4,7 +4,7 @@
   become: yes
   become_method: sudo
   roles:
-    - statecheck
+    - state_exporter
 - hosts: leafs
   user: cumulus
   become: yes
@@ -21,6 +21,7 @@
   roles:
     - ifupdown2
     - frr
+    - statecheck
   serial: 1
   max_fail_percentage: 50
 - hosts: servers
