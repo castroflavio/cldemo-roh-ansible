@@ -3,10 +3,10 @@
     return_content: yes
   register: webpage
   with_items:    
-    #- 'leaf01'
-    - 'leaf02'
-    - 'leaf03'
-    #- 'leaf04'
+    - '192.168.0.11'
+    - '192.168.0.12'
+    - '192.168.0.13'
+    - '192.168.0.14'
 
 - debug: var=item.content
   failed_when: item.content|int < 2
