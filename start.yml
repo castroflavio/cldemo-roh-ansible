@@ -1,0 +1,25 @@
+---
+- hosts: leafs, spines
+  user: cumulus
+  become: yes
+  become_method: sudo
+  roles:
+    - state_exporter
+- hosts: leafs
+  user: cumulus
+  become: yes
+  become_method: sudo
+  roles:
+    - ifupdown2
+    - frr
+  serial: 1
+  max_fail_percentage: 50
+- hosts: spines
+  user: cumulus
+  become: yes
+  become_method: sudo
+  roles:
+    - ifupdown2
+    - frr
+  serial: 1
+  max_fail_percentage: 50
